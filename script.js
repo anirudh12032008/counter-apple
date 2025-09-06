@@ -16,9 +16,9 @@ appleImageElement.addEventListener('error', () => {
 // Increment apple click counter and update UI display
 appleImageElement.addEventListener('click', () => {
     appleClickCounter++;
-    if (counterDisplay) {
-  counterDisplay.textContent = appleClickCounter;
-} else {
-  console.error("Counter display element not found.");
-}
+    if (counterDisplayElement) {
+        counterDisplayElement.textContent = appleClickCounter;
+    } else {
+        console.error("Counter display element not found.");
+    }
 });
