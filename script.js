@@ -1,16 +1,24 @@
 let appleClickCounter  = 0;
-const appleImage = document.querySelector('img');
-const counterDisplay = document.getElementById('counter');
+const appleImageElement = document.querySelector('img');
+const counterDisplayElement = document.getElementById('counter');
+const errorMessage = document.getElementById('err');
+
+// successful script load
+errorMessage.style.display = 'none';
 
 // image load error
-appleImage.addEventListener('error', () => {
-    appleImage.alt = '🍎 (Image failed to load )';
-    appleImage.style.fontSize = '4rem';
-    appleImage.style.display = 'inline-block';
+appleImageElement.addEventListener('error', () => {
+    appleImageElement.alt = '🍎 (Image failed to load )';
+    appleImageElement.style.fontSize = '4rem';
+    appleImageElement.style.display = 'inline-block';
 });
 
-// this fuction increments the apple click counter and updates the display
-appleImage.addEventListener('click', () => {
+// Increment apple click counter and update UI display
+appleImageElement.addEventListener('click', () => {
     appleClickCounter++;
-    counterDisplay.textContent = appleClickCounter;
+    if (counterDisplay) {
+  counterDisplay.textContent = appleClickCounter;
+} else {
+  console.error("Counter display element not found.");
+}
 });
